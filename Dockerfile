@@ -1,23 +1,22 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+# Uses an official Python runtime as a base image
+FROM python:3.9
 
-# Set the working directory to /app
-WORKDIR /app
+# Setting the working directory inside the container to ' /app'
+WORKDIR /BMICalculator
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+#Copies the contents of the current directory (including the Flask app and any necessary files) into the container's /app directory
+COPY . /BMICalculator/
 
-# Install any needed packages specified in requirements.txt
+#Installing any needed python packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Make port 80 available to the world outside this container
+#Exposing or making port: 80 available to the world outside this container. Port 80 is the default port for Flask Applications.
 EXPOSE 80
 
-# Define environment variable
-ENV NAME World
+#Run the basefile bmicalculator.py when the container launches. 
+CMD ["python", "./BMICalculator.py"]
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
-
+# nOW, TO BUILD THE DOCKER IMAGES, IN TERMINAL WE PASS COMMAND: "docker build -t itsmeruan/bmi-calculator:0.0.1.RELEASE .
+#" HERE -t is to give a tag and here i mentioned myusername/appname and version as needed. the last "." defines that the docker file based on which the given image name should be created and available in the current directory which is docker file.
 
 

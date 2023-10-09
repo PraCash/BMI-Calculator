@@ -1,5 +1,5 @@
 # Imported the necessary Flask modules.
-from flask import Flask, request, render_template
+from flask import (Flask, request, render_template)
 
 # Defiying the Flask app using 'app = Flask(--name--)'
 app = Flask(__name__)
