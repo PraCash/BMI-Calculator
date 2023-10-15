@@ -2,12 +2,12 @@
 from flask import (Flask, request, render_template)
 
 # Defiying the Flask app using 'app = Flask(--name--)'
-app = Flask(__name__)
+BMICalculator = Flask(__name__)
 
 
 # Creating a route '/' that handles both GET and POST requests.
-@app.route("/", methods=["GET", "POST"])
-#Adding a 'calculate_bmi' function to calculate BMI.
+@BMICalculator.route("/", methods=["GET", "POST"])
+# Adding a 'calculate_bmi' function to calculate BMI.
 def calculate_bmi():
     if request.method == "POST":
         weight = float(request.form["weight"])
@@ -35,4 +35,4 @@ def categorize_bmi(bmi):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    BMICalculator.run(debug=True)

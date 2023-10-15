@@ -8,7 +8,7 @@ WORKDIR /BMICalculator
 COPY . /BMICalculator/
 
 #Installing any needed python packages specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 #Exposing or making port: 80 available to the world outside this container. Port 80 is the default port for Flask Applications.
 EXPOSE 80
